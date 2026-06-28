@@ -22,6 +22,12 @@ pub struct GamepadContext {
     pub(crate) gilrs: Gilrs,
 }
 
+impl From<gilrs::GamepadId> for GamepadId {
+    fn from(value: gilrs::GamepadId) -> Self {
+        Self(value)
+    }
+}
+
 impl fmt::Debug for GamepadContext {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "<GilrsGamepadContext: {self:p}>")
